@@ -44,9 +44,9 @@ app.use(session({
 
 //子路由
 //登录
-app.use('/logsinup/login',require('./module/logsignup/login'));
+app.use('/logsignup/login',require('./module/logsignup/login'));
 //注册
-app.use('/logsinup/signup',require('./module/logsignup/signup'));
+app.use('/logsignup/signup',require('./module/logsignup/signup'));
 
 //管理员
 //
