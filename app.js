@@ -36,11 +36,21 @@ app.use(session({
     saveUninitialized: true,
     cookie: {maxAge:30*24*3600*1000}
 }));
-
-
-
-
-
+//方便测试---后面要删除
+app.use(function(req ,res, next){
+    req.session.aid = 1;
+    req.session.username = '电里';
+    next();
+});
+// 验证码图片
+app.get('/coder', (req, res) => {
+    var captcha = svgCaptcha.create({noise:4,ignoreChars: '0o1i', size:1,background: '#cc9966',height:38, width:90});
+	req.session.coder = captcha.text;
+	
+	res.type('svg'); // 使用ejs等模板时如果报错 res.type('html')
+	res.status(200).send(captcha.data);
+    
+});
 
 //子路由
 //登录
@@ -49,7 +59,7 @@ app.use('/logsignup/login',require('./module/logsignup/login'));
 app.use('/logsignup/signup',require('./module/logsignup/signup'));
 
 //管理员
-//
+app.use('/admin', require('./module/admin/index'));
 
 //静态资源托管
 app.use('/uploads', express.static('uploads'));
