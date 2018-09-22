@@ -1,3 +1,14 @@
 .admin-box {
     margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 30px
+}
+input[type=text] {
+    width: 600px;
+}
+.layui-input-block {
+    width: 600px;
+}
+.layui-body .mymain {
+    margin: 25px 25px 
 }

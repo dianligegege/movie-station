@@ -10,10 +10,10 @@
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left">
         <li class="layui-nav-item"><a href="">网站首页</a></li>
-      <li class="layui-nav-item"><a href="">资源管理</a></li>
+      <li class="layui-nav-item"><a href="/admin/movies">资源管理</a></li>
       <li class="layui-nav-item"><a href="">审核</a></li>
       <!-- 链接相对于locahost:8081/ -->
-      <li class="layui-nav-item"><a href="admin/addmovie">发布资源</a></li>
+      <li class="layui-nav-item"><a href="/admin/addmovie">发布资源</a></li>
       <li class="layui-nav-item"><a href="">用户管理</a></li>
       <!-- <li class="layui-nav-item">
         <a href="javascript:;">其它系统</a>
@@ -26,14 +26,14 @@
     </ul>
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
-        <a href="javascript:;">
+        <a href="/admin">
           <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
           <!-- 用户名访问data里的data.username -->
           <%=username%> 
 
         </a>
         <dl class="layui-nav-child">
-          <dd><a href="">基本资料</a></dd>
+          <dd><a href="/admin">基本资料</a></dd>
         </dl>
       </li>
       <li class="layui-nav-item"><a href="">退了</a></li>
@@ -61,8 +61,8 @@
         <li class="layui-nav-item layui-nav-itemed">
           <a href="javascript:;">资源管理</a>
           <dl class="layui-nav-child">
-                <dd><a href="/admin/questions">电影资源管理</a></dd>
-                <dd><a href="/admin/addquestion">标签管理</a></dd>
+                <dd><a href="/admin/movies">电影信息管理</a></dd>
+                <dd><a href="/admin/tag">标签管理</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item"><a href="">用户管理</a></li>

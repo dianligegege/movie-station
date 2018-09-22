@@ -61,6 +61,9 @@ app.use('/logsignup/signup',require('./module/logsignup/signup'));
 //管理员
 app.use('/admin', require('./module/admin/index'));
 
+//用户中心
+app.use('/user',require('./module/user/index'));
+
 //静态资源托管
 app.use('/uploads', express.static('uploads'));
 app.use(express.static('static'));
