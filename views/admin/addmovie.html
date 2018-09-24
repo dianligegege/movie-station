@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>影流网管理系统</title>
-    <link rel="stylesheet" href="/css/addmovie.css">
+    <!-- <link rel="stylesheet" href="/css/addmovie.css"> -->
     <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/addmovie.js"></script>
-
     <% include head.html%>
 
     <div class="layui-body mymain admin-box">
-        <!-- <span class="layui-breadcrumb">
+        <span class="layui-breadcrumb">
             <a href="/admin">首页</a>
-            <a href="/admin/questions">试题管理</a>
-            <a><cite>试题添加</cite></a>
-        </span> -->
+            <a><cite>发布资源</cite></a>
+            <a><cite>在线发布</cite></a>
+        </span>
+        <hr>
 
         <form class="layui-form" action="" id="addmovie">
 
@@ -38,7 +38,7 @@
                     <input type="text" name="m_director" autocomplete="off" class="layui-input" placeholder="请用空格分开">
                 </div>
             </div>
-            
+
             <div class="layui-form-item">
                 <label class="layui-form-label">主演</label>
                 <div class="layui-input-block">
@@ -69,7 +69,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">上映日期</label>
                 <div class="layui-input-block">
-                    <input type="text" name="m_showtime" autocomplete="off" class="layui-input timeselect" >
+                    <input type="text" name="m_showtime" autocomplete="off" class="layui-input timeselect">
                 </div>
             </div>
 
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            
+
             <div class="layui-form-item layui-form-text">
                 <label class="layui-form-label">简介</label>
                 <div class="layui-input-block">
@@ -98,28 +98,34 @@
                 <label class="layui-form-label">百度资源</label>
                 <div class="layui-input-block">
                     <input type="text" name="bds_name" autocomplete="off" class="layui-input">
+                    <button type="button" class="layui-btn" style="margin-top:10px " id='addbds'>
+                        <i class="layui-icon">&#xe608;</i> 添加
+                    </button>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">迅雷资源</label>
                 <div class="layui-input-block">
                     <input type="text" name="xls_name" autocomplete="off" class="layui-input">
+                    <button type="button" class="layui-btn" style="margin-top:10px " id='addxls'>
+                        <i class="layui-icon">&#xe608;</i> 添加
+                    </button>
                 </div>
             </div>
 
             <div class="layui-form-item">
-                    <label class="layui-form-label">豆瓣评分</label>
-                    <div class="layui-input-block">
-                        <select name="m_score">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
+                <label class="layui-form-label">豆瓣评分</label>
+                <div class="layui-input-block">
+                    <select name="m_score">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                 </div>
-            
+            </div>
+
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn" type="button" lay-submit lay-filter="addmovie">保存</button>
@@ -130,3 +136,5 @@
     </div>
 
     <% include foot.html%>
+
+    

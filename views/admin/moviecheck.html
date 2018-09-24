@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>电影资源管理</title>
+    <!-- <link rel="stylesheet" href="/css/addmovie.css"> -->
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="/js/movies.js"></script> -->
+
+    <% include head.html%>
+    <div class="layui-body mymain admin-box">
+        <span class="layui-breadcrumb">
+            <a href="/admin">首页</a>
+            <a><cite>电影分享审核</cite></a>
+        </span>
+        <hr>
+        <table class="layui-table  mytable movielist">
+            <!-- <colgroup>
+                <col width="50">
+                <col width="200">
+                <col width="80">
+                <col width="80">
+                <col width="150">
+                <col width='100'>
+                <col width='200'>
+            </colgroup> -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>电影名</th>
+                    <th>语言</th>
+                    <th>评分</th>
+                    <th>上传人分类</th>
+                    <th>上传人</th>
+                    <th>所属类别</th>
+                    <th>标签</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let m of movies){ %>
+                <tr>
+                    <td>
+                        <%=m.m_id%>
+                    </td>
+                    <td>
+                        <%=m.m_name%>
+                    </td>
+                    <td>
+                        <%=m.m_language%>
+                    </td>
+                    <td>
+                        <%=m.m_score%>
+                    </td>
+                    <td>
+                        <%=m.m_uperclass%>
+                    </td>
+                    <td>
+                        <a href="###"><%=m.m_upername%></a>
+                    </td>
+                    <td>
+                        <%=m.m_class%>
+                       
+                    </td>
+                    <td>
+                        <%=m.m_tag%>
+                    </td>
+                    <td>
+                        <a href="###" m_id=<%=m.m_id%> class="delmo" >不通过</a>
+                        |
+                        <a href="/admin/checkin?m_id=<%=m.m_id%>">查看</a>
+                    </td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+
+        <div id="pages"></div>
+
+    </div>
+
+    <% include foot.html%>
+
+    <script>
+        var laypage = layui.laypage;
+        laypage.render({
+            elem: 'pages'
+            , count: <%=count%>
+              , limit:<%=pagenum%>
+              , curr:<%=page%>
+              , jump: function (obj, first) {
+                //首次不执行
+                if (!first) {
+                    window.location.href = "/admin/moviecheck?page=" + obj.curr
+                }
+            }
+        });
+    </script>

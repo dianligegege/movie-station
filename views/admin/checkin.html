@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>影流网管理系统</title>
+    <!-- <link rel="stylesheet" href="/css/addmovie.css"> -->
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="/js/addmovie.js"></script> -->
+
+    <% include head.html%>
+
+    <div class="layui-body mymain admin-box">
+        <span class="layui-breadcrumb">
+            <a href="/admin">首页</a>
+            <a href="/admin/moviecheck">电影分享审核</a>
+            <a><cite>详细信息审核</cite></a>
+        </span>
+        <hr>
+
+
+        <form class="layui-form" action="" id="checkin">
+            <input type="hidden" value="<%=mo.m_id%>" name="m_id">
+            <div class="layui-form-item">
+                <label class="layui-form-label">电影名(<span class="H">*</span>)</label>
+                <div class="layui-input-block">
+                    <input id="shuru" type="text" name="m_name" autocomplete="off" value="<%=mo.m_name%>" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">别名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="m_anname" autocomplete="off" class="layui-input" value="<%=mo.m_anname%>">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">导演</label>
+                <div class="layui-input-block">
+                    <input type="text" name="m_director" autocomplete="off" class="layui-input" placeholder="请用空格分开"
+                        value="<%=mo.m_director%>">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">主演</label>
+                <div class="layui-input-block">
+                    <input type="text" name="m_actor" autocomplete="off" class="layui-input" value="<%=mo.m_actor%>">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">制片地区</label>
+                <div class="layui-input-block">
+                    <input type="text" name="m_location" autocomplete="off" class="layui-input" value="<%=mo.m_location%>">
+                </div>
+            </div>
+
+            <div class="layui-form-item languagesel">
+                <label class="layui-form-label">语言</label>
+                <div class="layui-input-block">
+                    <select name="m_language">
+                        <option value="国语">国语</option>
+                        <option value="英语">英语</option>
+                        <option value="日语">日语</option>
+                        <option value="韩语">韩语</option>
+                        <option value="法语">法语</option>
+                        <option value="其他语言">其他语言</option>
+                    </select>
+                </div>
+               
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">上映日期</label>
+                <div class="layui-input-block">
+                    <input type="text" name="m_showtime" autocomplete="off" class="layui-input timeselect" value="<%=mo.m_showtime.toLocaleString().substr(0,10)%>">
+                </div>
+            </div>
+
+            <div class="layui-form-item classsel">
+                <label class="layui-form-label">分类</label>
+                <div class="layui-input-block">
+                    <select name="m_class" value="<%=mo.m_class%>">
+                        <option value="爱情片">爱情片</option>
+                        <option value="喜剧片">喜剧片</option>
+                        <option value="动作片">动作片</option>
+                        <option value="科幻片">科幻片</option>
+                        <option value="恐怖片">恐怖片</option>
+                        <option value="战争片">战争片</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">简介</label>
+                <div class="layui-input-block">
+                    <textarea name="m_info" placeholder="请输入内容" class="layui-textarea"><%=mo.m_info%></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">百度资源</label>
+                <div class="layui-input-block">
+                    <% for (let b of bd){ %>
+                    <input type="text" name="bds_name" autocomplete="off" class="layui-input" value="<%=b.bds_name%>">
+                    <input type="hidden" value="<%=b.bds_id%>" name="bds_id" >
+                    <%}%>
+
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">迅雷资源</label>
+                <div class="layui-input-block">
+                    <% for (let x of xl){ %>
+                    <input type="text" name="xls_name" autocomplete="off" class="layui-input" value="<%=x.xls_name%>">
+                    <input type="hidden" value="<%=x.xls_id%>" name="xls_id" >
+                    <%}%>
+                </div>
+            </div>
+
+            <div class="layui-form-item scoresel">
+                <label class="layui-form-label">豆瓣评分</label>
+                <div class="layui-input-block">
+                    <select name="m_score">
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" type="button" lay-submit lay-filter="checkpass">审核通过</button>
+                    <button class="layui-btn  layui-btn-danger" type="button" lay-submit lay-filter="checkno">审核不通过</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <% include foot.html%>
+    <script>
+        var lan = document.querySelector(".languagesel input");
+        var sco = document.querySelector(".scoresel input");
+        var cla = document.querySelector(".classsel input");
+
+        lan.value = '<%=mo.m_language%>';
+        sco.value = '<%=mo.m_score%>';
+        cla.value = '<%=mo.m_class%>';
+
+    </script>

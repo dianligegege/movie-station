@@ -42,6 +42,18 @@ app.use(function(req ,res, next){
     req.session.username = '电里';
     next();
 });
+
+//文件上传
+const diskstorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, `./uploads/${new Date().getFullYear()}/${(new Date().getMonth()+1).toString().padStart(2, '0')}`);
+    },
+    filename: function (req, file, cb) {
+        let filename = new Date().valueOf() + '_' +  Math.random().toString().substr(2, 8) + '.' + file.originalname.split('.').pop();
+        cb(null, filename)
+    }
+});
+const upload = multer({storage: diskstorage});
 // 验证码图片
 app.get('/coder', (req, res) => {
     var captcha = svgCaptcha.create({noise:4,ignoreChars: '0o1i', size:1,background: '#cc9966',height:38, width:90});
@@ -49,7 +61,20 @@ app.get('/coder', (req, res) => {
 	
 	res.type('svg'); // 使用ejs等模板时如果报错 res.type('html')
 	res.status(200).send(captcha.data);
-    
+});
+// 上传图片接口
+app.post('/uploads', upload.array('images', 1000), (req ,res)=>{
+    console.log(req.files);
+    let data = [];
+    for (const ad of req.files) {
+        //把反斜线转成斜线，防止各种转义引起的路径错误
+        let path = hostname +  ad.path.replace(/\\/g, '/');
+        data.push(path);
+    }
+    res.json({
+        "errno": 0,
+        "data": data
+    });
 });
 
 //子路由
@@ -63,6 +88,10 @@ app.use('/admin', require('./module/admin/index'));
 
 //用户中心
 app.use('/user',require('./module/user/index'));
+
+//界面
+app.use('/',require('./module/front/home'));
+
 
 //静态资源托管
 app.use('/uploads', express.static('uploads'));

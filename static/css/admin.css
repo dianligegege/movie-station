@@ -1,7 +1,7 @@
 .admin-box {
-    margin-top: 25px;
+    margin-top: 15px;
     margin-left: 25px;
-    margin-right: 30px
+    margin-right: 25px
 }
 input[type=text] {
     width: 600px;
@@ -11,4 +11,10 @@ input[type=text] {
 }
 .layui-body .mymain {
     margin: 25px 25px 
+}
+.admin-index {
+    margin: 15px 25px 25px 230px;
+}
+.layui-elem-quote {
+    font-size: 20px !important;
 }

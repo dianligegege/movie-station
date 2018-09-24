@@ -5,18 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>影流网管理系统</title>
-    <link rel="stylesheet" href="/css/addmovie.css">
+    <!-- <link rel="stylesheet" href="/css/addmovie.css"> -->
     <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="/js/addmovie.js"></script> -->
 
     <% include head.html%>
 
     <div class="layui-body mymain admin-box">
-        <!-- <span class="layui-breadcrumb">
+        <span class="layui-breadcrumb">
             <a href="/admin">首页</a>
-            <a href="/admin/questions">试题管理</a>
-            <a><cite>试题添加</cite></a>
-        </span> -->
+            <a href="/admin/movies">电影信息管理</a>
+            <a><cite>电影详细信息管理</cite></a>
+        </span>
+        <hr>
 
         <form class="layui-form" action="" id="updatemo">
             <input type="hidden" value="<%=mo.m_id%>" name="m_id">
@@ -56,7 +57,7 @@
             <div class="layui-form-item languagesel">
                 <label class="layui-form-label">语言</label>
                 <div class="layui-input-block">
-                    <select name="m_language" >
+                    <select name="m_language">
                         <option value="国语">国语</option>
                         <option value="英语">英语</option>
                         <option value="日语">日语</option>
@@ -65,19 +66,7 @@
                         <option value="其他语言">其他语言</option>
                     </select>
                 </div>
-                <!-- <div class="layui-unselect layui-form-select">
-                    <div class="layui-select-title">
-                        <input type="text" placeholder="请选择" value="<%=mo.m_language%>" readonly="" class="layui-input layui-unselect">
-                        <i class="layui-edge"></i></div>
-                    <dl class="layui-anim layui-anim-upbit">
-                        <dd lay-value="国语" class="layui-this">国语</dd>
-                        <dd lay-value="英语" class="">英语</dd>
-                        <dd lay-value="日语" class="">日语</dd>
-                        <dd lay-value="韩语" class="">韩语</dd>
-                        <dd lay-value="法语" class="">法语</dd>
-                        <dd lay-value="其他语言" class="">其他语言</dd>
-                    </dl>
-                </div> -->
+               
             </div>
 
             <div class="layui-form-item">
@@ -111,23 +100,27 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">百度资源</label>
                 <div class="layui-input-block">
-                    <input type="text" name="bds_name" autocomplete="off" class="layui-input" value="">
-                    <input type="text" name="bds_name" autocomplete="off" class="layui-input" value="">
-                    <input type="text" name="bds_name" autocomplete="off" class="layui-input" value="">
+                    <% for (let b of bd){ %>
+                    <input type="text" name="bds_name" autocomplete="off" class="layui-input" value="<%=b.bds_name%>">
+                    <input type="hidden" value="<%=b.bds_id%>" name="bds_id" >
+                    <%}%>
 
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">迅雷资源</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xls_name" autocomplete="off" class="layui-input" value="">
+                    <% for (let x of xl){ %>
+                    <input type="text" name="xls_name" autocomplete="off" class="layui-input" value="<%=x.xls_name%>">
+                    <input type="hidden" value="<%=x.xls_id%>" name="xls_id" >
+                    <%}%>
                 </div>
             </div>
 
             <div class="layui-form-item scoresel">
                 <label class="layui-form-label">豆瓣评分</label>
                 <div class="layui-input-block">
-                    <select name="m_score" >
+                    <select name="m_score">
 
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -149,12 +142,12 @@
 
     <% include foot.html%>
     <script>
-        var lan =document.querySelector(".languagesel input");
-        var sco =document.querySelector(".scoresel input");
-        var cla =document.querySelector(".classsel input");
+        var lan = document.querySelector(".languagesel input");
+        var sco = document.querySelector(".scoresel input");
+        var cla = document.querySelector(".classsel input");
 
-        lan.value='<%=mo.m_language%>';
-        sco.value='<%=mo.m_score%>';
-        cla.value='<%=mo.m_class%>';
-        
+        lan.value = '<%=mo.m_language%>';
+        sco.value = '<%=mo.m_score%>';
+        cla.value = '<%=mo.m_class%>';
+
     </script>
