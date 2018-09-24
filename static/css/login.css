@@ -1,0 +1,30 @@
+ .adminlogin{
+    width: 450px;
+    margin-top: 220px;
+    margin-left: 550px;
+    color: black;
+} 
+body{
+    background-image: url("/img/img01.jpg");
+    background-size: 1900px,900px;
+    background-repeat: no-repeat;
+}
+.coder{
+    padding-top: 0 !important;
+}
+#codeimg{
+    cursor: pointer;
+}
+.H{
+    color: red !important;
+}
+.loginclass{
+    bottom: 25px;
+    left: 10;
+}
+.loginbtn{
+    bottom: 35px;
+}
+.admin-login{
+    margin-right: 10px;
+}
