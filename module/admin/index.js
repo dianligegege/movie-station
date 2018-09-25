@@ -221,7 +221,7 @@ router.get('/updatemo', (req, res) => {
     data.username = req.session.username;
     let m_id = req.query.m_id;
     if (!m_id) {
-        res.send('请选择你要修改的分类');
+        res.send('请选择你要修改的信息');
         return;
     }
 

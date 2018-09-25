@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>影流用户分享</title>
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/front.css" />
+		<link rel="stylesheet" href="/swiper/swiper-4.4.1.min.css" />
+		<link rel="stylesheet" href="/layui/css/layui.css">
+		<link rel="stylesheet" href="/css/shore.css" />
+		<link rel="icon" href="/img/favicon.ico" type="image/x-icon" /> 
+
+	</head>
+	<% include head.html%>
+	
+	<div class="container">
+		<div class="layui-body mymain admin-box">
+
+			<form class="layui-form" action="" id="addmovie">
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">电影名(<span class="H">*</span>)</label>
+					<div class="layui-input-block">
+						<input id="shuru" type="text" name="m_name" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">别名</label>
+					<div class="layui-input-block">
+						<input type="text" name="m_anname" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">导演</label>
+					<div class="layui-input-block">
+						<input type="text" name="m_director" autocomplete="off" class="layui-input" placeholder="请用空格分开">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">主演</label>
+					<div class="layui-input-block">
+						<input type="text" name="m_actor" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">制片地区</label>
+					<div class="layui-input-block">
+						<input type="text" name="m_location" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">语言</label>
+					<div class="layui-input-block">
+						<select name="m_language">
+							<option value="国语">国语</option>
+							<option value="英语">英语</option>
+							<option value="日语">日语</option>
+							<option value="韩语">韩语</option>
+							<option value="法语">法语</option>
+							<option value="其他语言">其他语言</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">上映日期</label>
+					<div class="layui-input-block">
+						<input type="text" name="m_showtime" autocomplete="off" class="layui-input timeselect">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">分类</label>
+					<div class="layui-input-block">
+						<select name="m_class">
+							<option value="爱情片">爱情片</option>
+							<option value="喜剧片">喜剧片</option>
+							<option value="动作片">动作片</option>
+							<option value="科幻片">科幻片</option>
+							<option value="恐怖片">恐怖片</option>
+							<option value="战争片">战争片</option>
+						</select>
+					</div>
+				</div>
+
+
+				<div class="layui-form-item layui-form-text">
+					<label class="layui-form-label">简介</label>
+					<div class="layui-input-block">
+						<textarea name="m_info" placeholder="请输入内容" class="layui-textarea"></textarea>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">百度资源</label>
+					<div class="layui-input-block">
+						<input type="text" name="bds_name" autocomplete="off" class="layui-input">
+						<button type="button" class="layui-btn" style="margin-top:10px " id='addbds'>
+							<i class="layui-icon">&#xe608;</i> 添加
+						</button>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">迅雷资源</label>
+					<div class="layui-input-block">
+						<input type="text" name="xls_name" autocomplete="off" class="layui-input">
+						<button type="button" class="layui-btn" style="margin-top:10px " id='addxls'>
+							<i class="layui-icon">&#xe608;</i> 添加
+						</button>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">豆瓣评分</label>
+					<div class="layui-input-block">
+						<select name="m_score">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button class="layui-btn" type="button" lay-submit lay-filter="addmovie">保存</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+
+
+	<% include foot.html%>
+	<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.js"></script>
+	<script src="/swiper/swiper-4.4.1.min.js"></script>
+	<script src="/layui/layui.all.js"></script>
+	<script src="/js/front.js"></script>
+	<script src="/js/addmovie.js"></script>
+	</body>
+
+</html>

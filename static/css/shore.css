@@ -1,0 +1,24 @@
+.admin-box {
+	margin: 40px 0 50px 60px;
+	position: relative;
+	left: 0px;
+}
+input[type=text] {
+    width: 600px;
+}
+.layui-input-block {
+    width: 600px;
+}
+.layui-body .mymain {
+    margin: 25px 25px 
+}
+.admin-index {
+    margin: 15px 25px 25px 230px;
+}
+.layui-elem-quote {
+    font-size: 20px !important;
+}
+.layui-form-label {
+	width: 90px !important;
+}
+

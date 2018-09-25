@@ -8,77 +8,63 @@
 		<title>影流网</title>
 		<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" href="/css/front.css"/>
+		<link rel="stylesheet" href="/css/home.css" />
 		<link rel="stylesheet" href="/swiper/swiper-4.4.1.min.css"/>
+		<link rel="icon" href="/img/favicon.ico" type="image/x-icon" /> 
+		<!-- <link rel="stylesheet" href="/layui/css/layui.css"> -->
 	</head>
 
 <% include head.html%>
 
 <div class="container-fluid content_box">
 
-
+<!-- 轮播图 -->
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
 				<div class="sw_img" style="background-image: url(/img/s1.jpg);"></div>
-				<!-- <img src="/img/s1.jpg" /> -->
 			</div>
 			<div class="swiper-slide">
 				<div class="sw_img" style="background-image: url(/img/s2.jpg);"></div>
-
-
-				<!-- <img src="/img/s2.jpg" /> -->
 			</div>
 			<div class="swiper-slide">
 				<div class="sw_img" style="background-image: url(/img/s3.jpg);"></div>
-
-
-				<!-- <img src="/img/s3.jpg" /> -->
 			</div>
 		</div>
 		<!-- 如果需要分页器 -->
 		<div class="swiper-pagination"></div>
-
 		<!-- 如果需要导航按钮 -->
 		<div class="swiper-button-prev"></div>
 		<div class="swiper-button-next"></div>
-
 		<!-- 如果需要滚动条 -->
-
 		<div class="swiper-scrollbar"></div>
 	</div>
 
+
+<!-- 电影卡片 -->
 	<div class="container content_con">
-		<div class="row cont_con_row">
-			<div class="col-md-3 movie_card">
-				<a href="###">
-					
-					<img src="/img/test.jpg" />
-					
+		<div class="cont_con_row">
+			<% for (let m of movies){%>
+			<div class="movie_card">
+				<a href="/onemovie?m_id=<%=m.m_id%>">
+					<img src="/img/test.jpg"/>
 					<span>
-						电影名字
-						<span class="small label label-success">5.0</span>
+						<%=m.m_name%>
+						<span class="small label label-success"><%=m.m_score%></span>
 					</span>
-					
-					<div class="thumbnail">
+					<div class="card_cover">
 						<div class="caption">
-							<h3>电影名</h3>
-							<p>导演</p>
-							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+							<h3><%=m.m_name%></h3>
+							<p><%=m.m_director%></p>
 						</div>
 					</div>
-					
-					
 				</a>
 			</div>
-			<div class="col-md-3">2</div>
-			<div class="col-md-3">3</div>
-			<div class="col-md-3">4</div>
+			<%}%>
 		</div>
 
 
 	</div>
-
-
 
 </div>
 
@@ -86,7 +72,7 @@
 
 <% include foot.html%>
 <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
-
+		<!-- <script src="/layui/layui.all.js"></script> -->
 		<script src="/bootstrap/js/bootstrap.js"></script>
 		<script src="/swiper/swiper-4.4.1.min.js"></script>
 		<script src="/js/front.js"></script>
