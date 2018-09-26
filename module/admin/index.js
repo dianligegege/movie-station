@@ -157,7 +157,7 @@ router.get('/movies', (req, res) => {
     data.username = req.session.username;
 
     //当前页数
-    let pagenum = 5;
+    let pagenum = 4;
     data.pagenum = pagenum;
 
     let page = req.query.page ? req.query.page : 1;

@@ -1,47 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>影流网</title>
-		<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="/css/front.css" />
-		<link rel="stylesheet" href="/swiper/swiper-4.4.1.min.css" />
-		<link rel="stylesheet" href="/css/onemovie.css" />
-	</head>
-	<% include head.html%>
-
-	<div class="container ">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>影流网</title>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/front.css" />
+	<link rel="stylesheet" href="/swiper/swiper-4.4.1.min.css" />
+	<link rel="stylesheet" href="/css/onemovie.css" />
+</head>
+<% include head.html%>
+<div class="background">
+	<div class="backimg">
+	<div class="container backcon">
 		<div class="div1">
-			<h3><%=mo.m_name%></h3>
-			<button class="btn btn-info" m_id='###'>收藏</button>
-			<p>电影简介：<%=mo.m_info%></p>
-			<p>导演：<%=mo.m_director%></p>
-			<p>主演：<%=mo.m_actor%></p>
-			<p>类型：<%=mo.m_class%></p>
-			<p>制片国家/地区：<%=mo.m_location%></p>
-			<p>语言：<%=mo.m_language%></p>
-			<p>上映日期：<%=mo.m_showtime.toLocaleDateString()%></p>
-			<p>又名：<%=mo.m_anname%></p>
-			<p>剧情简介：<%=mo.m_info%></p>
+			<h2 class="mo_name">
+				<%=mo.m_name%>
+			</h2>
+			<button class="btn btn-info btn_coll" status='<%=status%>' u_id='<%=aid%>' m_id='<%=mo.m_id%>'>
+				<%=word%></button>
+			<div class="mo_img">
+				<img src='<%=mo.m_image%>' />
+			</div>
+			<p><span class="s1">导演：</span>
+				<%=mo.m_director%>
+			</p>
+			<p><span class="s1">主演：</span>
+				<%=mo.m_actor%>
+			</p>
+			<p><span class="s1">类型：</span>
+				<%=mo.m_class%>
+			</p>
+			<p><span class="s1">制片国家/地区：</span>
+				<%=mo.m_location%>
+			</p>
+			<p><span class="s1">语言：</span>
+				<%=mo.m_language%>
+			</p>
+			<p><span class="s1">上映日期：</span>
+				<%=mo.m_showtime.toLocaleDateString()%>
+			</p>
+			<p><span class="s1">又名：</span>
+				<%=mo.m_anname%>
+			</p>
+			<p><span class="s1">豆瓣评分：</span>
+				<%=mo.m_score%>
+			</p>
+			<p><span class="s1">剧情简介：</span>
+				<%=mo.m_info%>
+			</p>
 			<hr />
-			<p>百度资源</p>
-			<p>链接：<a href="<%=bd.bds_name%>">百度网盘</a> 密码： </p>
+			<p><span class="s1">百度资源</span></p>
+			<% for (let b of bd ){%>
+			<p>
+				<%=b.bds_describe%><a href="<%=b.bds_name%>">百度网盘</a> 密码：
+				<%=b.bds_pw%>
+			</p>
+			<%}%>
 			<hr />
-			<p>视频迅雷下载</p>
-			<p><%=xl.xls_name%></p>
-			<p>迅雷2</p>
+			<p><span class="s1">视频迅雷下载</span></p>
+			<% for (let x of xl){%>
+			<p><a class="xl_source" href="<%=x.xls_name%>">
+					<%=x.xls_name%></a></p>
+			<%}%>
+
+
+		</div>
+		<div class="div2">
+			<!-- 评论 -->
+			<hr>
+			<form id="form_talk">
+				<div class="form-group">
+					<label class="onther_talk" for="talk_text">写出你的评论</label>
+					<input type="hidden" name="m_id" value="<%=mo.m_id%>">
+					<textarea name="t_text" id="talk_text" class="form-control" rows="3"></textarea>
+				</div>
+				<button type="button" class="btn btn-default btn_talk">提交评论</button>
+			</form>
+			<hr>
+			<p class="onther_talk">围观评论</p>
+			<% for (let t of talk ){%>
+			<div class="talk_card">
+				<p>
+					<%=t.u_name%>&nbsp;&nbsp;
+					<%=t.t_time.toLocaleString()%>
+				</p>
+				<p>
+					<%=t.t_text%>
+				</p>
+			</div>
+			<hr>
+			<%}%>
 		</div>
 	</div>
-
-	<% include foot.html%>
-	<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
-	<script src="/bootstrap/js/bootstrap.js"></script>
-	<script src="/swiper/swiper-4.4.1.min.js"></script>
-	<script src="/js/front.js"></script>
-	<script src="/js/onemovie.js"></script>
-	</body>
+</div>
+<% include foot.html%>
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script src="/swiper/swiper-4.4.1.min.js"></script>
+<script src="/js/front.js"></script>
+<script src="/js/onemovie.js"></script>
+</body>
 
 </html>

@@ -1,5 +1,6 @@
 $(function(){
 	let form = layui.form;
+	
 	//选择日期组件
 	layui.use('laydate', function() {
 		var laydate = layui.laydate;
