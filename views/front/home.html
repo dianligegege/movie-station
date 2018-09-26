@@ -22,13 +22,13 @@
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<div class="sw_img" style="background-image: url(/img/s1.jpg);"></div>
+				<a class="sw_img" href="/onemovie?m_id=1" style="display: block; background-image: url(/img/s1.jpg);"></a>
 			</div>
 			<div class="swiper-slide">
-				<div class="sw_img" style="background-image: url(/img/s2.jpg);"></div>
+				<a href="/onemovie?m_id=2" class="sw_img" style="display: block; background-image: url(/img/s2.jpg);"></a>
 			</div>
 			<div class="swiper-slide">
-				<div class="sw_img" style="background-image: url(/img/s3.jpg);"></div>
+				<a href="/onemovie?m_id=3" class="sw_img" style="display: block;background-image: url(/img/s3.jpg);"></a>
 			</div>
 		</div>
 		<!-- 如果需要分页器 -->
@@ -40,16 +40,15 @@
 		<div class="swiper-scrollbar"></div>
 	</div>
 
-
 <!-- 电影卡片 -->
 	<div class="container content_con">
 		<div class="cont_con_row">
 			<% for (let m of movies){%>
 			<div class="movie_card">
 				<a href="/onemovie?m_id=<%=m.m_id%>">
-					<img src="/img/test.jpg"/>
+					<img src="<%=m.m_image%>"/>
 					<span>
-						<%=m.m_name%>
+						<span style="width: 186px; display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"><%=m.m_name%></span>
 						<span class="small label label-success"><%=m.m_score%></span>
 					</span>
 					<div class="card_cover">
@@ -62,8 +61,6 @@
 			</div>
 			<%}%>
 		</div>
-
-
 	</div>
 
 </div>

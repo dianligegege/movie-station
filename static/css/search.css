@@ -1,0 +1,74 @@
+.content_box {
+	padding-top: 20px;
+	padding-left: 0px;
+	padding-right: 0px;
+	background:linear-gradient(to top, rgb(67, 78, 84), rgb(31, 41, 53));
+}
+.content_con {
+	padding-top: 40px;
+}
+.cont_con_row {
+	display:flex;
+	justify-content: space-around;
+	align-content: space-between;
+	flex-wrap: wrap;
+}
+.movie_card {
+	width: 272.5px;
+	height: 418px;
+	padding: 0 10px;
+	margin-bottom: 30px;
+	overflow: hidden;
+	position: relative;
+}
+.movie_card>a {
+	color: white;
+	display: block;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+.movie_card a:hover {
+	text-decoration: none;
+}
+.movie_card>a>img {
+	width: 255px;
+	height: 370px;
+	border-radius: 16px;
+	margin: 0 auto;
+	transition: all 0.2s;
+}
+.movie_card>a>span {
+	display: inline-block;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	font-size: 16px;
+}
+.movie_card>a>span>span {
+	vertical-align: text-top;
+	
+}
+.card_cover {
+	position: relative;
+	width: 255px;
+	height: 375px;
+	padding: 0 10px;
+	position: absolute;
+	top: 200px;
+	opacity: 0;
+	/* top: 50px; */
+	/* top: 0px; */
+	/* left: 0px; */
+	background-color: #009688;
+	border-radius: 10px;
+}
+.card_cover .caption {
+	padding-top: 60px;
+}
+.form_search {
+    color: white;
+    width: 900px;
+    /* padding-left: 100px */
+
+}

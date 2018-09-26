@@ -1,7 +1,7 @@
 /* 轮播图 */
-.swiper-container {
+/* .swiper-container {
     
-} 
+}  */
 .sw_img {
 	background-size:cover;
 	background-position: center;
@@ -46,7 +46,7 @@
 .movie_card>a>img {
 	width: 255px;
 	height: 370px;
-	border-radius: 5px;
+	border-radius: 16px;
 	margin: 0 auto;
 	transition: all 0.2s;
 }
@@ -64,7 +64,7 @@
 .card_cover {
 	position: relative;
 	width: 255px;
-	height: 370px;
+	height: 375px;
 	padding: 0 10px;
 	position: absolute;
 	top: 200px;
@@ -73,7 +73,7 @@
 	/* top: 0px; */
 	/* left: 0px; */
 	background-color: #009688;
-	border-radius: 5px;
+	border-radius: 10px;
 }
 .card_cover .caption {
 	padding-top: 60px;

@@ -1,28 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>影流网</title>
-		<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-		<link rel="stylesheet" href="/css/front.css"/>
-		<link rel="stylesheet" href="/swiper/swiper-4.4.1.min.css"/>
-		<link rel="stylesheet" href="/css/search.css" />
-		<link rel="icon" href="/img/favicon.ico" type="image/x-icon" /> 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>影流网</title>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/front.css" />
+	<link rel="stylesheet" href="/swiper/swiper-4.4.1.min.css" />
+	<link rel="stylesheet" href="/css/search.css" />
+	<link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
 
-	</head>
+</head>
 <% include head.html%>
-		
-		
+<div class="container-fluid content_box">
+	<div class="container ">
+		<form class="form-horizontal form_search">
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-2 control-label">电影名</label>
+				<div class="col-sm-10">
+					<input type="text" name="m_name" class="form-control" id="n_name" placeholder="电影名">
+				</div>
+			</div>
 
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="radio">
+						<label>
+							<input name="m_class" checked id="m_class1" value="爱情" type="radio"> 爱情
+						</label>
+						<label>
+							<input name="m_class" id="m_class2" value="喜剧" type="radio"> 喜剧
+						</label>
+						<label>
+							<input name="m_class" id="m_class3" value="动作" type="radio"> 动作
+						</label>
+						<label>
+							<input name="m_class" id="m_class4" value="科幻" type="radio"> 科幻
+						</label>
+						<label>
+							<input name="m_class" id="m_class4" value="恐怖" type="radio"> 恐怖
+						</label>
+						<label>
+							<input name="m_class" id="m_class4" value="战争" type="radio"> 战争
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="radio">
+						<label>
+							<input name="m_language" checked id="m_language1" value="国语" type="radio"> 国语
+						</label>
+						<label>
+							<input name="m_language" id="m_language2" value="英语" type="radio"> 英语
+						</label>
+						<label>
+							<input name="m_language" id="m_language3" value="日语" type="radio"> 日语
+						</label>
+						<label>
+							<input name="m_language" id="m_language4" value="韩语" type="radio"> 韩语
+						</label>
+						<label>
+							<input name="m_language" id="m_language3" value="法语" type="radio"> 法语
+						</label>
+						<label>
+							<input name="m_language" id="m_language4" value="其他语言" type="radio"> 其他语言
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<div class="radio">
+						<label>
+							<input name="m_way" checked id="m_way2" value="0" type="radio"> 模糊查找
+						</label>
+						<label>
+							<input name="m_way" id="m_way1" value="1" type="radio"> 精确查找
+						</label>
+
+					</div>
+				</div>
+			</div>
+			<!-- <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<div class="radio">
+					<label>
+						<input name="optionsRadios" id="optionsRadios1" value="option1" type="radio"> 2000
+					</label>
+					<label>
+						<input name="optionsRadios" id="optionsRadios2" value="option2" type="radio"> Remember me
+					</label>
+					<label>
+						<input name="optionsRadios" id="optionsRadios3" value="option3" type="radio"> Remember me
+					</label>
+					<label>
+						<input name="optionsRadios" id="optionsRadios4" value="option4" type="radio"> Remember me
+					</label>
+				</div>
+			</div>
+		</div> -->
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="button" class="btn btn-primary btn_search">查询</button>
+				</div>
+			</div>
+		</form>
+
+		<!-- 电影卡片 -->
+		<div class="container content_con">
+			<div class="cont_con_row">
+				<% for (let m of movies){%>
+				<div class="movie_card">
+					<a href="/onemovie?m_id=<%=m.m_id%>">
+						<img src="<%=m.m_image%>" />
+						<span>
+							<span style="width: 186px; display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+								<%=m.m_name%></span>
+							<span class="small label label-success">
+								<%=m.m_score%></span>
+						</span>
+						<div class="card_cover">
+							<div class="caption">
+								<h3>
+									<%=m.m_name%>
+								</h3>
+								<p>
+									<%=m.m_director%>
+								</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<%}%>
+			</div>
+		</div>
+	</div>
+</div>
 <% include foot.html%>
-		<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
-		<script src="/bootstrap/js/bootstrap.js"></script>
-		<script src="/swiper/swiper-4.4.1.min.js"></script>
-		<script src="/js/front.js"></script>
-		<script src="/js/search.js"></script>
-	</body>
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script src="/swiper/swiper-4.4.1.min.js"></script>
+<script src="/js/front.js"></script>
+<script src="/js/search.js"></script>
+</body>
 
 </html>
