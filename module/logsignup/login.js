@@ -74,11 +74,12 @@ router.post('/1', (req, res)=>{
         //保存session信息
         req.session.aid = result[0].u_id;
         req.session.username = result[0].u_name;
+        // req.session.header = result[0].u_header;
         //更新状态
         let sql = 'UPDATE user SET  u_lasttime = ? WHERE u_name = ?';
         console.log(result[0].u_name)
         conn.query(sql, [new Date().toLocaleString(), result[0].u_name], (err, result)=>{
-            res.json({r:'ok'});
+            res.json({u:'ok'});
         });
         
     });

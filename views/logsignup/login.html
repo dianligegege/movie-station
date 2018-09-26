@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div class="bigbox">
     <div class="layui-container">
         <form class="layui-form adminlogin" action=""  id="adminlogin">
             <div class="layui-form-item">
@@ -42,7 +43,7 @@
             <div class="layui-form-item">
                 <div class="layui-input-block loginclass">
                     <input type="radio" name="sex" value="admin" lay-filter="filter" title="管理员">
-                    <input type="radio" name="sex" value="user" lay-filter="filter1" title="用户">
+                    <input type="radio" name="sex" value="user" checked lay-filter="filter1" title="用户">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -52,6 +53,7 @@
             </div>
         </form>
     </div>
+</div>
     <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="/layui/layui.all.js"></script>
     <script src="/js/adminlogin.js"></script>

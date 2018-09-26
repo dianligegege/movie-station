@@ -51,8 +51,9 @@ $(function () {
                     $('input[name="a_password"]').parent().next('.layui-form-mid').html('密码错误');
                     return ;
                 }
-                if(result.r == 'ok'){
-                    window.location.href = '/user';
+                if(result.u == 'ok'){
+                    console.log(666)
+                    window.location.href = '/';
                 }
             }
         });

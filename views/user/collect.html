@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>影流网管理系统</title>
+    <!-- <link rel="stylesheet" href="/css/addmovie.css"> -->
+    <link rel="stylesheet" href="/css/collect.css">
+    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="/js/updateuser.js"></script>
+    <script src="/js/userhead.js"></script> -->
+    <script src="/js/collect.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <% include head.html%>
+    <div class="container ">
+    <div class="collect">
+        <h3><%=catelist.m_name%></h3>
+
+        <a href="../onemovie?m_id=<%=catelist.m_id%>"><img src="<%=catelist.m_image%>" alt=""></a><br>
+        <span><%=catelist.m_anname%></span><br>
+        <span>演员：<%=catelist.m_actor%></span>
+    </div>
+</div>
+    <% include foot.html%>

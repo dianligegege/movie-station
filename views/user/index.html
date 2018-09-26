@@ -19,51 +19,62 @@
             <a href="/admin/questions">试题管理</a>
             <a><cite>试题添加</cite></a>
         </span> -->
-        <form action="" method="post" enctype="multipart/form-data" id="imgsubmit">
+        <!-- <form action="" method="post" enctype="multipart/form-data" id="imgsubmit">
             <label class="header" for="images">
                 <img src="/img/header.jpg" alt="" id="img">
             </label>
             <input type="file" name="images" id="images" style="display:none">
             <input type="hidden" value="" id="imgval">
-            <input type="button" value="保存">
-        </form>
-
-
+             <input type="button" value="保存" id="imgval1">
+        </form> -->
 
 
         <form class="layui-form" action="" id="updateuser">
+
+            <div class="layui-form-item">
+                <label class="header" for="images">
+                    <img src="/img/header.jpg" alt="" id="img">
+                </label>
+                <input type="file" name="images" id="images" style="display:none">
+                <div class="layui-input-block">
+                    <input type="hidden" name="u_header" value="" id="imgval">
+                </div>
+            </div>
+
+
 
             <div class="layui-form-item">
                 <label class="layui-form-label">用户名</label>
                 <div class="layui-input-block">
                     <input id="shuru" type="text" name="u_name" autocomplete="off" class="layui-input">
                 </div>
-                <div class="layui-form-mid layui-word-aux H"></div>
+                <div class="layui-form-mid layui-word-aux h"></div>
             </div>
             <div class="layui-form-item">
-                    <label class="layui-form-label">密码<span class="H">*</span></label>
-                    <div class="layui-input-block">
-                      <input type="password" name="u_password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
-                    </div>
-                    
-                  </div>
-              <div class="layui-form-item">
+                <label class="layui-form-label">密码<span class="H">*</span></label>
+                <div class="layui-input-block">
+                    <input type="password" name="u_password" required lay-verify="required" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input">
+                </div>
+
+            </div>
+            <div class="layui-form-item">
                 <label class="layui-form-label">年龄</label>
                 <div class="layui-input-block">
-                    <input type="text" name="u_age" autocomplete="off" class="layui-input" >
+                    <input type="text" name="u_age" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            
+
             <div class="layui-form-item">
-                    <label class="layui-form-label">性别</label>
-                    <div class="layui-input-block">
-                        <select name="u_sex" >
-                            <option value="男">男</option>
-                            <option value="女">女</option>
-                        </select>
-                    </div> 
+                <label class="layui-form-label">性别</label>
+                <div class="layui-input-block">
+                    <select name="u_sex">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
                 </div>
-            
+            </div>
+
             <div class="layui-form-item">
                 <label class="layui-form-label">手机号</label>
                 <div class="layui-input-block">
@@ -71,7 +82,7 @@
                 </div>
             </div>
 
-            
+
             <div class="layui-form-item layui-form-text">
                 <label class="layui-form-label">签名</label>
                 <div class="layui-input-block">
@@ -79,7 +90,7 @@
                 </div>
             </div>
 
-            
+
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn" type="button" lay-submit lay-filter="updateuser">保存</button>
